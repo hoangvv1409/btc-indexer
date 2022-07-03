@@ -24,7 +24,7 @@ def upgrade():
         sa.Column('confirmations', sa.Integer, nullable=False),
         sa.Column('merkle_root', sa.String, nullable=False),
 
-        sa.Column('nonce', sa.Integer, nullable=False),
+        sa.Column('nonce', sa.BigInteger, nullable=False),
         sa.Column('difficulty', sa.DECIMAL, nullable=False),
 
         sa.Column('previous_block_hash', sa.String, nullable=False),
