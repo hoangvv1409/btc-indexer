@@ -1,10 +1,17 @@
-from sqlalchemy import Integer, Column, JSON
-from src.databases.schema_base import DeclarativeBase, Base, DateTimestamp
+from sqlalchemy import BigInteger, Integer, Column, JSON, String
+from src.databases.schema_base import DeclarativeBase, Base
 
 
-class TransactionSchema(DeclarativeBase, Base, DateTimestamp):
+class TransactionSchema(DeclarativeBase, Base):
     __tablename__ = 'transactions'
 
-    id = Column(Integer, primary_key=True)
+    txid = Column(String, primary_key=True)
 
-    payload = Column(JSON, nullable=True)
+    hash = Column(String, nullable=False)
+    block_hash = Column(String, nullable=False)
+    time = Column(BigInteger, nullable=False)
+    confirmations = Column(Integer, nullable=False)
+    hex = Column(String, nullable=False)
+
+    vin = Column(JSON, nullable=False)
+    vout = Column(JSON, nullable=False)

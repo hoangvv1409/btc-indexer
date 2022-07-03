@@ -1,10 +1,18 @@
-from sqlalchemy import Integer, Column, JSON
-from src.databases.schema_base import DeclarativeBase, Base, DateTimestamp
+from sqlalchemy import BigInteger, Integer, Column, String, DECIMAL
+from src.databases.schema_base import DeclarativeBase, Base
 
 
-class BlockSchema(DeclarativeBase, Base, DateTimestamp):
+class BlockSchema(DeclarativeBase, Base):
     __tablename__ = 'blocks'
 
-    id = Column(Integer, primary_key=True)
+    hash = Column(String, primary_key=True)
+    height = Column(Integer, nullable=False)
+    confirmations = Column(Integer, nullable=False)
+    merkle_root = Column(String, nullable=False)
+    time = Column(BigInteger, nullable=False)
 
-    payload = Column(JSON, nullable=True)
+    nonce = Column(Integer, nullable=False)
+    difficulty = Column(DECIMAL, nullable=False)
+
+    previous_block_hash = Column(String, nullable=False)
+    next_block_hash = Column(String, nullable=False)
