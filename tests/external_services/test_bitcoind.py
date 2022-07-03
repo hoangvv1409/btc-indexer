@@ -12,7 +12,7 @@ client = Bitcoind(
 )
 
 
-class TestMoralis:
+class TestBitcoind:
     def test_get_block_hash(self):
         height = 1
         response = client.get_block_hash(height)
