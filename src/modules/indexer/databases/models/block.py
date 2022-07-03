@@ -11,7 +11,7 @@ class BlockSchema(DeclarativeBase, Base):
     merkle_root = Column(String, nullable=False)
     time = Column(BigInteger, nullable=False)
 
-    nonce = Column(Integer, nullable=False)
+    nonce = Column(BigInteger, nullable=False)
     difficulty = Column(DECIMAL, nullable=False)
 
     previous_block_hash = Column(String, nullable=False)
